@@ -1,6 +1,7 @@
 import React from 'react';
 //import Card from './Card';
 import List from './List';
+import './App.css';
 
 class App extends React.Component {
 	static defaultProps = {
