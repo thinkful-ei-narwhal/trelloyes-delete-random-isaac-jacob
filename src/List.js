@@ -1,61 +1,24 @@
 import React from 'react';
+import Card from './Card';
 
+const List = (props) => {
+	return (
+		<section className='List'>
+			<header className='List-header'>
+				<h2>props.header</h2>
+			</header>
 
+			<div className='List-cards'>
+				{props.cards.map((card) => (
+					<Card key={card.id} title={card.title} content={card.content} />
+				))}
 
-function List(props) {
-  const headers = props.header.map()
-  return (
-    <section class="List">
-        <header class="List-header">
-          <h2>{props.header}</h2>
-        </header>
-        <div class="List-cards">
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>First card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Second card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Fifth card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Sixth card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Seventh card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Tenth card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Twelfth card</h3>
-            <p>lorem ipsum</p>
-          </div>
-          <div class="Card">
-            <button type="button">delete</button>
-            <h3>Thirteenth card</h3>
-            <p>lorem ipsum</p>
-          </div>
-            <button type="button" class="List-add-button">
-              + Add Random Card
-            </button>
-        </div>
-      </section>
-  );
-}
+				<button type='button' className='List-add-button'>
+					+ Add Random Card
+				</button>
+			</div>
+		</section>
+	);
+};
 
 export default List;
