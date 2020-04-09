@@ -86,7 +86,42 @@ class App extends React.Component {
 		});
 	};
 
+	newRandomCard = () => {
+		const id = Math.random().toString(36).substring(2, 4)
+		  + Math.random().toString(36).substring(2, 4);
+		const newCards =  {
+		  id,
+		  title: `Random Card ${id}`,
+		  content: 'lorem ipsum',
+		}
+		
+
+		//append the card to allCards
+
+		this.setState({
+			allCards: {...this.state.allCards, [id]: newCards},
+			
+			
+		})
+
+
+		//append the card to its respective list
+
+		this.setState({
+			lists: this.state.lists.map((item) => {
+				
+				return {
+					...item,
+					cardIds: [...item.cardIds, id]
+					
+				};
+			}),
+		});
+	  }
+
+
 	render() {
+		console.log('state:', this.state)
 		return (
 			<main className='App'>
 				<header className='App-header'>
@@ -99,6 +134,7 @@ class App extends React.Component {
 							header={list.header}
 							cards={list.cardIds.map((id) => this.state.allCards[id])}
 							deleteCard={this.deleteCard}
+							addCard = {this.newRandomCard}
 						/>
 					))}
 				</div>
